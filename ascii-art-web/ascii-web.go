@@ -1,7 +1,7 @@
 package main
 
 import (
-	"ascii-art-web/ascii_art"
+	"ascii-art-web/ascii-art"
 	"html/template"
 	"net/http"
 	"strings"
