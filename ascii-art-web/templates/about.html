@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About - Ascii Art Web</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f0f4f0, #c6f0d6);
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #27ae60;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #16a085;
+            margin-top: 25px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .member {
+            background: #2c3e50;
+            color: white;
+            border-radius: 15px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .links a {
+            color: #27ae60;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        @media(max-width: 600px) {
+            .member {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>About Ascii Art Web</h1>
+    <p>Ascii Art Web allows users to convert plain text into beautiful ASCII art using different styles. 
+       You can choose from multiple styles and copy or download your creations easily.</p>
+
+    <h2>Project Info</h2>
+    <p><strong>Started:</strong> 2026</p>
+    <p><strong>Company:</strong> NextEra</p>
+    <p><strong>Technologies:</strong> Go, HTML, CSS</p>
+
+    <h2>Team</h2>
+    <div class="team">
+        <div class="member">
+            <h3>Malak Kulaib</h3>
+            <p>makulaib</p>
+        </div>
+        <div class="member">
+            <h3>Ahmed Fahmy</h3>
+            <p>afahmy</p>
+        </div>
+        <div class="member">
+            <h3>Anton Maher</h3>
+            <p>amaher</p>
+        </div>
+    </div>
+
+    <h2>Links & Sources</h2>
+    <p class="links">Gitea Repo: <a href="https://01.nextera.education/git/makulaib/ascii-art-web">https://01.nextera.education/git/makulaib/ascii-art-web</a></p>
+</div>
+
+</body>
+</html>
