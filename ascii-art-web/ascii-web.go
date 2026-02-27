@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ascii-art-web/ascii_art"
 	"html/template"
 	"net/http"
 	"strings"
@@ -13,13 +14,13 @@ func renderError(w http.ResponseWriter, status int) {
 
 	switch status {
 	case http.StatusNotFound:
-		page = "error404.html"
+		page = "templates/error404.html"
 	case http.StatusBadRequest:
-		page = "error400.html"
+		page = "templates/error400.html"
 	case http.StatusInternalServerError:
-		page = "error500.html"
+		page = "templates/error500.html"
 	default:
-		page = "error500.html"
+		page = "templates/error500.html"
 	}
 
 	tmpl, err := template.ParseFiles(page)
@@ -50,19 +51,19 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		renderError(w, http.StatusNotFound)
 		return
 	}
-	renderTemplate(w, "index.html", nil)
+	renderTemplate(w, "templates/index.html", nil)
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "home.html", nil)
+	renderTemplate(w, "templates/home.html", nil)
 }
 
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "about.html", nil)
+	renderTemplate(w, "templates/about.html", nil)
 }
 
 func testHandler(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "test.html", nil)
+	renderTemplate(w, "templates/test.html", nil)
 }
 
 func asciiArtHandler(w http.ResponseWriter, r *http.Request) {
@@ -81,9 +82,9 @@ func asciiArtHandler(w http.ResponseWriter, r *http.Request) {
 	text = strings.ReplaceAll(text, `\n`, "\n")
 
 	bannerName := r.FormValue("banner")
-	bannerFile := bannerName + ".txt"
+	bannerFile := "ascii_art/" + bannerName + ".txt"
 
-	banner, err := loadBanner(bannerFile)
+	banner, err := ascii_art.LoadBanner(bannerFile)
 	if err != nil {
 		renderError(w, http.StatusNotFound)
 		return
@@ -98,11 +99,11 @@ func asciiArtHandler(w http.ResponseWriter, r *http.Request) {
 		if line == "" {
 			continue
 		}
-		result.WriteString(renderASCII(line, banner))
+		result.WriteString(ascii_art.RenderASCII(line, banner))
 		result.WriteString("\n")
 	}
 
-	renderTemplate(w, "test.html", map[string]string{
+	renderTemplate(w, "templates/test.html", map[string]string{
 		"Result": result.String(),
 	})
 }
