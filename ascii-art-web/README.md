@@ -26,7 +26,7 @@ The project also includes proper error handling with custom pages for:
 **1. Clone the repository:**
 
 ```bash
-git clone https://01.nextera.education/git/makulaib/ascii-art-web
+git clone https://github.com/Malakkulaib/01-edu.git
 ```
 
 **2. Enter the project directory:**
