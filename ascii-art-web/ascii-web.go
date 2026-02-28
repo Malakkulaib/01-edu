@@ -19,6 +19,8 @@ func renderError(w http.ResponseWriter, status int) {
 		page = "templates/error400.html"
 	case http.StatusInternalServerError:
 		page = "templates/error500.html"
+	case http.StatusMethodNotAllowed:
+		page = "templates/error405.html"
 	default:
 		page = "templates/error500.html"
 	}
@@ -69,7 +71,7 @@ func testHandler(w http.ResponseWriter, r *http.Request) {
 func asciiArtHandler(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method != http.MethodPost {
-		renderError(w, http.StatusBadRequest)
+		renderError(w, http.StatusMethodNotAllowed)
 		return
 	}
 
@@ -82,7 +84,7 @@ func asciiArtHandler(w http.ResponseWriter, r *http.Request) {
 	text = strings.ReplaceAll(text, `\n`, "\n")
 
 	bannerName := r.FormValue("banner")
-	bannerFile := "ascii_art/" + bannerName + ".txt"
+	bannerFile := "ascii-art/" + bannerName + ".txt"
 
 	banner, err := ascii_art.LoadBanner(bannerFile)
 	if err != nil {
