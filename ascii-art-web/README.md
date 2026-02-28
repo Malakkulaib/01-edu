@@ -10,6 +10,7 @@ The project also includes proper error handling with custom pages for:
 - `400 Bad Request`
 - `404 Not Found`
 - `500 Internal Server Error`
+- `405 Method Not Allowed`
 
 ---
 
