@@ -19,6 +19,7 @@ The project also includes proper error handling with custom pages for:
 - Malak Kulaib
 - Ahmed Fahmy
 - Anton Maher
+- Mohamed Saied
 
 ---
 
