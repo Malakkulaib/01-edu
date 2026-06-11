@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>{{.Artist.Name}} - Details</title>
+</head>
+<body>
+    <div class="artist-page">
+        <div class="hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0), #121212), url('{{.Artist.Image}}');">
+            <div class="hero-info">
+                <a href="/" class="back-link">← Back to Explore</a>
+                <img src="{{.Artist.Image}}" class="circle-img">
+                <h1>{{.Artist.Name}}</h1>
+                <p>First Album: <span>{{.Artist.FirstAlbum}}</span></p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="info-grid">
+                <div class="section shadow-box">
+                    <h2>👥 Members</h2>
+                    <ul>
+                        {{range .Artist.Members}}
+                        <li>{{.}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+
+                <div class="section shadow-box">
+                    <h2>📅 Tour Dates & Locations</h2>
+                    <div class="locations">
+                        {{range $loc, $dates := .Relation.DatesLocations}}
+                        <div class="loc-item">
+                            <span class="city">{{$loc}}</span>
+                            <span class="date-list">{{range $dates}}{{.}}  {{end}}</span>
+                        </div>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
